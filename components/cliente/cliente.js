@@ -1,0 +1,3 @@
+const cliente =()=>{
+    registro.innerHTML =
+}
