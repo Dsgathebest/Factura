@@ -1,0 +1,32 @@
+/* header */
+.header{
+    background-color: aqua;
+    padding-top: 20px;
+    height: 100px;
+}
+.iFactura{
+    position: absolute;
+    top: 10px;
+    width: 80px;
+}
+/* card */
+.card-header{
+    background-color: #cbcbe0;
+}
+.card-form{
+    margin-top: 20px;
+}
+.boton{
+    margin-top: 20px;   
+}
+.div-form{
+    margin-top: 5px;
+}
+.btn-form{
+    margin: 0px 5px;
+    width: 40px;
+    height: 40px;
+}
+.e-form{
+    margin: 0px 10px;
+}

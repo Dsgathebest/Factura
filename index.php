@@ -1,49 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="js/procesarfactura.js" defer></script>
+    <script src="/components/registro/cliente.js" defer></script>
     <title>Registro de Factura</title>
 </head>
-    <body>
-        <div id="registro">
-            <h1>Registro de Factura</h1>
 
-            <h2>Encabezado de Factura</h2>
-                <form id="headerForm">
-                    <label for="invoiceNumber">Número de Factura:</label>
-                    <input type="text" id="invoiceNumber" name="invoiceNumber"><br>
+<body>
+    <!-- Encabezado -->
+    <div id="registro" class="">
+        <div class="header row ">
+            <div class="col-3 d-flex justify-content-center">
+                <img class="iFactura" src="/imagenes/factura.png" alt="">
+            </div>
+            <div class="col-6 d-flex justify-content-center align-item-center">
+                <div class="">
+                    <h1>Registro de Factura</h1>
+                </div>
+            </div>
+            <div class="col-3"></div>
 
-                    <label for="customerName">Nombre del Cliente:</label>
-                    <input type="text" id="customerName" name="customerName"><br>
+        </div>
+        <!-- Main -->
+        <div class="container">
+            <div class="card m-5">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Encabezado de Factura</h2>
+                    </div>
+                    <div class="card-form">
+                        <form id="headerForm">
+                            <div class="d-flex div-form">
+                                <label for="invoiceNumber">Número de Factura:</label>
+                                <input class="e-form"type="text" id="invoiceNumber" name="invoiceNumber"><br>
+                                <button class="e-form" type="button" id="addCode">Generar codigo de Factura</button>
+                            </div>
+                            <div class="div-form">
+                                <label for="customerName">Nombre del Cliente:</label>
+                                <input class="e-form" type="text" id="customerName" name="customerName"><br>
+                            </div>
+                            <!-- Otros campos del encabezado de factura -->
 
-                    <!-- Otros campos del encabezado de factura -->
-                    
-                    <button type="button" id="addHeader">Agregar Encabezado</button>
-                    </form>
+                            <button class="boton" type="button" id="addHeader" onclick="generarCodigo()">Guardar Encabezado</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-                    <h2>Detalle de Factura</h2>
-                    <form id="detailForm">
-                    <label for="productName">Nombre del Producto:</label>
-                    <input type="text" id="productName" name="productName">
+            <div class="card m-5">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Detalle de Factura</h2>
+                    </div>
+                    <div class="card-form">
+                        <form id="detailForm">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-around">
+                                        <div class="div-form d-grid">
+                                            <label for="productName">Nombre del Producto:</label>
+                                            <input type="text" id="productName" name="productName">
+                                        </div>
+                                        <div class="div-form d-grid">
+                                            <label for="price">Precio:</label>
+                                            <input type="number" id="price" name="price">
+                                        </div>
+                                        <div class="div-form d-grid">
+                                            <label for="quantity">Cantidad:</label>
+                                            <input type="number" id="quantity" name="quantity">
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <button type="button" class="btn-form btn btn-success">+</button>
+                                            <button type="button" class="btn-form btn btn-danger">-</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <label for="quantity">Cantidad:</label>
-                    <input type="number" id="quantity" name="quantity">
+                            <!-- Otros campos del detalle de factura -->
 
-                    <!-- Otros campos del detalle de factura -->
-                    
-                    <button type="button" id="addItem">Agregar Detalle</button>
-                </form>
+                            <div id="newItem">
 
-            <button type="button" onclick="submitForm()">Guardar Factura</button>
+                            </div>
+                        </form>
+                    </div>
 
-            <div id="result">
+                    <div>
+                        <button class="boton" id="addItem" type="button">Agregar Producto</button>
+                    </div>
+                    <button class="boton" type="button" onclick="submitForm()">Guardar Factura</button>
+                </div>
 
+                <div id="result">
+
+                </div>
             </div>
         </div>
-        
-        
-    </body>
+    </div>
+
+    </div>
+
+
+</body>
+
 </html>
