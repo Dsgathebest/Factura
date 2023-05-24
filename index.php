@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="js/procesarfactura.js" defer></script>
-    <script src="/components/registro/cliente.js" defer></script>
+    <script src="/js/registro/cliente.js" defer></script>
     <title>Registro de Factura</title>
 </head>
 
@@ -38,8 +38,8 @@
                         <form id="headerForm">
                             <div class="d-flex div-form">
                                 <label for="invoiceNumber">Número de Factura:</label>
-                                <input class="e-form"type="text" id="invoiceNumber" name="invoiceNumber"><br>
-                                <button class="e-form" type="button" id="addCode">Generar codigo de Factura</button>
+                                <input class="e-form" type="text" id="invoiceNumber" name="invoiceNumber"><br>
+                                <button class="e-form btn btn-light" type="button" id="addCode">Generar codigo de Factura</button>
                             </div>
                             <div class="div-form">
                                 <label for="customerName">Nombre del Cliente:</label>
@@ -47,7 +47,7 @@
                             </div>
                             <!-- Otros campos del encabezado de factura -->
 
-                            <button class="boton" type="button" id="addHeader" onclick="generarCodigo()">Guardar Encabezado</button>
+                            <button class="boton btn btn-warning" type="button" id="addHeader" onclick="generarCodigo()">Guardar Encabezado</button>
                         </form>
                     </div>
                 </div>
@@ -62,19 +62,22 @@
                         <form id="detailForm">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-around">
-                                        <div class="div-form d-grid">
-                                            <label for="productName">Nombre del Producto:</label>
-                                            <input type="text" id="productName" name="productName">
+                                    <div class="d-flex justify-content-around flex-wrap">
+                                        <div class="d-flex justify-content-around">
+                                            <div class="div-form e-form d-grid">
+                                                <label for="productName">Nombre del Producto:</label>
+                                                <input type="text" id="productName" name="productName">
+                                            </div>
+                                            <div class="div-form e-form d-grid">
+                                                <label for="price">Precio:</label>
+                                                <input type="number" id="price" name="price">
+                                            </div>
+                                            <div class="div-form e-form d-grid ">
+                                                <label for="quantity">Cantidad:</label>
+                                                <input type="number" id="quantity" name="quantity">
+                                            </div>
                                         </div>
-                                        <div class="div-form d-grid">
-                                            <label for="price">Precio:</label>
-                                            <input type="number" id="price" name="price">
-                                        </div>
-                                        <div class="div-form d-grid">
-                                            <label for="quantity">Cantidad:</label>
-                                            <input type="number" id="quantity" name="quantity">
-                                        </div>
+
                                         <div class="d-flex align-items-center">
                                             <button type="button" class="btn-form btn btn-success">+</button>
                                             <button type="button" class="btn-form btn btn-danger">-</button>
@@ -92,9 +95,9 @@
                     </div>
 
                     <div>
-                        <button class="boton" id="addItem" type="button">Agregar Producto</button>
+                        <button class="boton btn btn-warning" id="addItem" type="button">Agregar Producto</button>
                     </div>
-                    <button class="boton" type="button" onclick="submitForm()">Guardar Factura</button>
+                    <button class="boton btn btn-warning" type="button" onclick="submitForm()">Guardar Factura</button>
                 </div>
 
                 <div id="result">
