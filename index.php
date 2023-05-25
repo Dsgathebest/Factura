@@ -29,7 +29,7 @@
         </div>
         <!-- Main -->
         <div class="container">
-            <div class="card m-5">
+            <div class="card m-4">
                 <div class="card-body">
                     <div class="card-header">
                         <h2>Encabezado de Factura</h2>
@@ -53,39 +53,14 @@
                 </div>
             </div>
 
-            <div class="card m-5">
+            <div class="card m-4">
                 <div class="card-body">
                     <div class="card-header">
                         <h2>Detalle de Factura</h2>
                     </div>
-                    <div class="card-form">
+                    <div class="card-form div-scroll">
                         <form id="detailForm">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-around flex-wrap">
-                                        <div class="d-flex justify-content-around">
-                                            <div class="div-form e-form d-grid">
-                                                <label for="productName">Nombre del Producto:</label>
-                                                <input type="text" id="productName" name="productName">
-                                            </div>
-                                            <div class="div-form e-form d-grid">
-                                                <label for="price">Precio:</label>
-                                                <input type="number" id="price" name="price">
-                                            </div>
-                                            <div class="div-form e-form d-grid ">
-                                                <label for="quantity">Cantidad:</label>
-                                                <input type="number" id="quantity" name="quantity">
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex align-items-center">
-                                            <button type="button" class="btn-form btn btn-success">+</button>
-                                            <button type="button" class="btn-form btn btn-danger">-</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            
                             <!-- Otros campos del detalle de factura -->
 
                             <div id="newItem">

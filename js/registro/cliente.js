@@ -27,7 +27,7 @@ function generarCodigoUnico() {
 
 // Agregar, sumar y restar producto
 function agregarProducto() {
-    console.log(idSecuencial);
+    
     let btnIdSumar ="btnS"+idSecuencial.toString();
     let btnIdRestar ="btnR"+idSecuencial.toString();
     let eFormIdCantidad="eFormC"+idSecuencial.toString();
@@ -39,7 +39,7 @@ function agregarProducto() {
     divNewItem.id = idSecuencial;
 
     divNewItem.innerHTML =/*html*/`
-        <div class="card">
+        <div class="card new-item">
             <div class="card-body">
                 <div class="d-flex justify-content-around flex-wrap">
                     <div class="d-flex justify-content-around">
@@ -66,8 +66,9 @@ function agregarProducto() {
         </div>
     `
     newItem.append(divNewItem);
-    sumar(btnIdSumar,eFormIdCantidad);
-
+    let valorN = sumar(btnIdSumar,eFormIdCantidad);
+    restar(btnIdRestar,eFormIdCantidad,valorN);
+    
     idSecuencial++;
 }
 
@@ -77,10 +78,43 @@ function sumar(idSumar,inputCantidad) {
     const cantidad =document.querySelector(`#${inputCantidad}`);
     sumar.addEventListener("click",()=>{
         cantidad.value = valor++;
+        
     })
     return valor;   
-
 }
+
+function restar(idRestar,inputCantidad,valorNuevo) {
+    let valor=valorNuevo;
+    const restar = document.querySelector(`#${idRestar}`);
+    const cantidad =document.querySelector(`#${inputCantidad}`);
+    restar.addEventListener("click",()=>{
+        cantidad.value=valor--;
+    })
+    return valor;
+}
+// function sumar(idSumar, inputCantidad) {
+//     const sumar = document.querySelector(`#${idSumar}`);
+//     const cantidad = document.querySelector(`#${inputCantidad}`);
+    
+//     sumar.addEventListener("click", () => {
+//       let valor = parseInt(cantidad.value) || 0;
+//       valor++;
+//       cantidad.value = valor;
+//     });
+//   }
+  
+//   function restar(idRestar, inputCantidad) {
+//     const restar = document.querySelector(`#${idRestar}`);
+//     const cantidad = document.querySelector(`#${inputCantidad}`);
+    
+//     restar.addEventListener("click", () => {
+//       let valor = parseInt(cantidad.value) || 0;
+//       if (valor > 0) {
+//         valor--;
+//         cantidad.value = valor;
+//       }
+//     });
+//   }
 
 // const cliente =()=>{
 //     registro.innerHTML =

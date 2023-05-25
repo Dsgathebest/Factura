@@ -10,6 +10,15 @@
     width: 80px;
 }
 /* card */
+.div-scroll{
+    width: auto;
+    height: 300px;
+    overflow:scroll;
+    scroll-behavior: smooth;
+}
+.new-item{
+    margin-top: 10px;
+}
 .card-header{
     background-color: #cbcbe0;
 }
