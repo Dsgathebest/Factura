@@ -33,7 +33,8 @@ function agregarProducto() {
     let eFormIdCantidad="eFormC"+idSecuencial.toString();
     let eFormIdPrice="eFormP"+idSecuencial.toString();
     let eFormIdNameProduct="eFormNP"+idSecuencial.toString();
-
+    let eFormIdTotal="eFormT"+idSecuencial.toString();
+    
     let divNewItem = document.createElement("div");
     divNewItem.className = "";
     divNewItem.id = idSecuencial;
@@ -55,6 +56,10 @@ function agregarProducto() {
                             <label for="${eFormIdCantidad}">Cantidad:</label>
                             <input type="text" id="${eFormIdCantidad}" name="${eFormIdCantidad}">
                         </div>
+                        <div class="div-form e-form d-grid ">
+                            <label for="${eFormIdTotal}">Total:</label>
+                            <input type="text" id="${eFormIdTotal}" name="${eFormIdTotal}">
+                        </div>
                     </div>
 
                     <div class="d-flex align-items-center">
@@ -66,55 +71,58 @@ function agregarProducto() {
         </div>
     `
     newItem.append(divNewItem);
-    let valorN = sumar(btnIdSumar,eFormIdCantidad);
-    restar(btnIdRestar,eFormIdCantidad,valorN);
+    sumar(btnIdSumar,eFormIdCantidad,eFormIdTotal,eFormIdPrice);
+    restar(btnIdRestar,eFormIdCantidad,eFormIdTotal,eFormIdPrice);
     
     idSecuencial++;
 }
 
-function sumar(idSumar,inputCantidad) {
-    let valor=1;
-    const sumar = document.querySelector(`#${idSumar}`);
-    const cantidad =document.querySelector(`#${inputCantidad}`);
-    sumar.addEventListener("click",()=>{
-        cantidad.value = valor++;
-        
-    })
-    return valor;   
-}
+function sumar(idSumar, inputCantidad,inputTotal,inputPrecio) {
+    const btnSumar = document.querySelector(`#${idSumar}`);
+    const cantidadInput = document.querySelector(`#${inputCantidad}`);
+    const totalInput =document.querySelector(`#${inputTotal}`);
+    const precioInput =document.querySelector(`#${inputPrecio}`);
 
-function restar(idRestar,inputCantidad,valorNuevo) {
-    let valor=valorNuevo;
-    const restar = document.querySelector(`#${idRestar}`);
-    const cantidad =document.querySelector(`#${inputCantidad}`);
-    restar.addEventListener("click",()=>{
-        cantidad.value=valor--;
-    })
-    return valor;
-}
-// function sumar(idSumar, inputCantidad) {
-//     const sumar = document.querySelector(`#${idSumar}`);
-//     const cantidad = document.querySelector(`#${inputCantidad}`);
     
-//     sumar.addEventListener("click", () => {
-//       let valor = parseInt(cantidad.value) || 0;
-//       valor++;
-//       cantidad.value = valor;
-//     });
-//   }
+    btnSumar.addEventListener("click", () => {
+      let valor = parseInt(cantidadInput.value) || 0;
+      let precio =parseInt(precioInput.value) || 0;
+      valor++;
+      cantidadInput.value = valor;
+      
+      if (precio==0){
+        totalInput.value = 0;
+      }
+      else {
+        totalInput.value = valor*precio
+      }
+
+    });
+  }
   
-//   function restar(idRestar, inputCantidad) {
-//     const restar = document.querySelector(`#${idRestar}`);
-//     const cantidad = document.querySelector(`#${inputCantidad}`);
+  function restar(idRestar, inputCantidad,inputTotal,inputPrecio) {
+    const btnRestar = document.querySelector(`#${idRestar}`);
+    const cantidadInput = document.querySelector(`#${inputCantidad}`);
+    const totalInput =document.querySelector(`#${inputTotal}`);
+    const precioInput =document.querySelector(`#${inputPrecio}`);
     
-//     restar.addEventListener("click", () => {
-//       let valor = parseInt(cantidad.value) || 0;
-//       if (valor > 0) {
-//         valor--;
-//         cantidad.value = valor;
-//       }
-//     });
-//   }
+    btnRestar.addEventListener("click", () => {
+      let valor = parseInt(cantidadInput.value) || 0;
+      let precio =parseInt(precioInput.value) || 0;
+
+      if (valor > 0) {
+        valor--;
+        cantidadInput.value = valor;
+      }
+      
+      if (precio==0){
+        totalInput.value = 0;
+      }
+      else {
+        totalInput.value = valor*precio
+      }
+    });
+  }
 
 // const cliente =()=>{
 //     registro.innerHTML =
