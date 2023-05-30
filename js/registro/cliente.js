@@ -1,5 +1,3 @@
-const btnGenerarCodigo = document.querySelector("#addCode");
-btnGenerarCodigo.addEventListener("click", generarCodigo);
 
 const newItem = document.querySelector("#newItem");
 const addItem = document.querySelector("#addItem");

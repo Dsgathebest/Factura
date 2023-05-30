@@ -36,18 +36,53 @@
                     </div>
                     <div class="card-form">
                         <form id="headerForm">
-                            <div class="d-flex div-form">
-                                <label for="invoiceNumber">Número de Factura:</label>
-                                <input class="e-form" type="text" id="invoiceNumber" name="invoiceNumber"><br>
-                                <button class="e-form btn btn-light" type="button" id="addCode">Generar codigo de Factura</button>
+                            <div class="d-flex justify-content-around flex-wrap">
+                                <div class="d-grid div-form">
+                                    <label for="invoiceNumber">Nro de Factura:</label>
+                                    <input class="e-form" type="text" id="invoiceNumber" name="invoiceNumber"><br>
+                                </div>
+                                <div class="d-grid div-form">
+                                    <label for="invoiceDate">Fecha de Factura:</label>
+                                    <input class="e-form" type="date" id="invoiceDate" name="invoiceDate"><br>
+                                </div>
+                                <div class="d-grid div-form">
+                                    <label for="sellerName">Vendedor:</label>
+                                    <input class="e-form" type="text" id="sellerName" name="sellerName"><br>
+                                </div>
                             </div>
-                            <div class="div-form">
-                                <label for="customerName">Nombre del Cliente:</label>
-                                <input class="e-form" type="text" id="customerName" name="customerName"><br>
+                            <div class="d-flex justify-content-center flex-wrap">
+                                <div class="d-grid div-form">
+                                    <label for="customerId">Nro ID del cliente:</label>
+                                    <input class="e-form" type="text" id="customerId" name="customerId"><br>
+                                </div>
+                                <div class="d-grid div-form">
+                                    <label for="customerName">Nombres y apellidos:</label>
+                                    <input class="e-form" type="text" id="customerName" name="customerName"><br>
+                                </div>
+                                <div class="d-grid div-form">
+                                    <label for="customerEmail">Correo Electronico:</label>
+                                    <input class="e-form" type="text" id="customerEmail" name="customerEmail"><br>
+                                </div>
+                                <div class="d-grid div-form">
+                                    <label for="customerAddress">Direccion:</label>
+                                    <input class="e-form" type="text" id="customerAddress" name="customerAddress"><br>
+                                </div>
+                                <div class="d-grid div-form">
+                                    <label for="customerTel">Telefono de Contacto:</label>
+                                    <input class="e-form" type="text" id="customerTel" name="customerTel"><br>
+                                </div>
                             </div>
-                            <!-- Otros campos del encabezado de factura -->
 
-                            <button class="boton btn btn-warning" type="button" id="addHeader" onclick="generarCodigo()">Guardar Encabezado</button>
+
+
+
+                            <!-- Otros campos del encabezado de factura -->
+                            <div class="d-flex justify-content-between">
+                                <button class="boton btn btn-light" type="button" onclick="generarCodigo()">Generar codigo de Factura</button>
+
+                                <button class="boton btn btn-warning" type="button" id="addHeader" onclick="submitForm()">Guardar Encabezado</button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
@@ -60,7 +95,7 @@
                     </div>
                     <div class="card-form div-scroll">
                         <form id="detailForm">
-                            
+
                             <!-- Otros campos del detalle de factura -->
 
                             <div id="newItem">
@@ -72,7 +107,8 @@
                     <div>
                         <button class="boton btn btn-warning" id="addItem" type="button">Agregar Producto</button>
                     </div>
-                    <button class="boton btn btn-warning" type="button" onclick="submitForm()">Guardar Factura</button>
+                    <button class="boton btn btn-warning" type="button"
+                    id="saveItem" onclick="submitForm()">Guardar Factura</button>
                 </div>
 
                 <div id="result">
